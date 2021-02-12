@@ -1,1 +1,2 @@
-print("Hello Python word!")
+massage = "Hello Python word!"
+print(massage)
