@@ -1,5 +1,6 @@
-# Вставка элементов списка с
-# использованием метода insert() - с добавлением индкекса и значения.
+# Удаление элементов из списка 
+# использованием команды del().
 motorcycles = ['honda', 'yamaha', 'suzuki']
-motorcycles.insert(0, 'dukati')
+print(motorcycles)
+del motorcycles[0]
 print(motorcycles)
