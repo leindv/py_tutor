@@ -1,6 +1,6 @@
-# Изменение элементов в списке
-# Прога изменяет первый [0] элемент списка
+# Добавление элементов в списке
+# Используется метод append()
 motorcycles = ['honda', 'yamaha', 'suzuki']
 print(motorcycles)
-motorcycles[0] = 'ducati'
+motorcycles.append('ducati')
 print(motorcycles)
