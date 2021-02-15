@@ -1,5 +1,4 @@
-# Используя метод title() выведем первый (начинается с нуля)
-# элемент списка.
-# Кстати, в vscode прога (все три примера) заработала!!!!
+# Поиск второго и четвертого элементов списка
 bicycles = ['trek', 'cannondale', 'redline', 'specialized']
-print(bicycles[0].title())
+print(bicycles[1])
+print(bicycles[3])
