@@ -1,6 +1,9 @@
 # Удаление элементов из списка 
-# использованием команды del().
+# использованием метод pop().
+# Этот метод удаляет почледний элемент из списка, но
+# позволяет работать с ним после удаления
 motorcycles = ['honda', 'yamaha', 'suzuki']
 print(motorcycles)
-del motorcycles[0]
+popped_motorcycle = motorcycles.pop()
 print(motorcycles)
+print(popped_motorcycle)
