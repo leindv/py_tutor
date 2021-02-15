@@ -1,11 +1,7 @@
-# Перебор цсписка при помощи цикла for, где 
-# начинаем с определения списка (1), затем 
-# определяем циел for (2), который приказывает Python 
-# взять щчередное имя из списка и сохранить его в переменной 
-# magician. В точке 3 вывести имя в только что сохраненной 
-# переменной magician.
+# С использованием f-строки.
 #
 #
-magicians = ['alice', 'david', 'corolina'] #1
-for magician in magicians: #2
-    print(magician) #3
+magicians = ['alice', 'david', 'corolina'] 
+for magician in magicians: 
+    print(f"{magician.title()}, that was a great trick!")
+    
