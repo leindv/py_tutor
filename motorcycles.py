@@ -1,7 +1,5 @@
-# Динамическое построение списков с
-# использованием метода append()
-motorcycles = []
-motorcycles.append('honda')
-motorcycles.append('yamaha')
-motorcycles.append('suzuki')
+# Вставка элементов списка с
+# использованием метода insert() - с добавлением индкекса и значения.
+motorcycles = ['honda', 'yamaha', 'suzuki']
+motorcycles.insert(0, 'dukati')
 print(motorcycles)
