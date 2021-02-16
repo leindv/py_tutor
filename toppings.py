@@ -1,11 +1,11 @@
-# Обработка начинается в строке 1 со списка, содержащего 
-# топпинги. Команды в точке 2 проверяют , включает ли заказ 
-# конкретные топпинги итд итп etc.... 
-requested_toppings = ['mashrooms', 'extra cheese'] #1
-if 'mashrooms' in requested_toppings: #2
+# В отличии от предыдущего коммита здесь первое значение 
+# является истинным, поэтому остальные значения 
+# не проверяются.
+requested_toppings = ['mashrooms', 'extra cheese'] 
+if 'mashrooms' in requested_toppings: 
     print("Adding mashrooms.")
-if 'pepperoni' in requested_toppings: #3
+elif 'pepperoni' in requested_toppings: 
     print("Adding pepperoni.")
-if 'extra cheese' in requested_toppings: #4
+elif 'extra cheese' in requested_toppings:
     print("Adding extra cheese.")
 print("\nFinished making your pizza!")       
