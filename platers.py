@@ -1,5 +1,5 @@
-# Подмножество элементов списка называют СЕГМЕНТАМИ.
-# Аналогично придыдущему примеру, но подсчет 
-# сегментов начинается ТРЕТЬЕГО элемента до последнего в списке.
+# Программа перебирает первые три элемента списка (1).
 players = ['charles', 'martina', 'michael', 'florence', 'eli']
-print(players[2:]) #1
+print("Here are the first three players on my team:")
+for player in players[:3]: #1
+    print(player.title())
