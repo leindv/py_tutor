@@ -1,5 +1,8 @@
-# Функция len() применяется для 
-# определения длины списка
-# Выполнять в терминале >>>
-cars = ['bmw', 'audi', 'toyota', 'subaru']
-len(cars)
+# 
+cars = ['audi', 'bmw', 'toyota', 'subaru']
+for car in cars:
+    if car == 'bmw': #1
+        print(car.upper())
+    else:
+        print(car.title())
+    
