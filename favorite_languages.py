@@ -1,8 +1,5 @@
-# Этот синтаксис применяется для получения 
-# соответсвующего ЗНАЧЕНИЯ из словаря (1) с 
-# присвоением ему переменной language, 
-# для дальнейшего упращения вывода 
-# командой print.
+# Еще один пример перебора всех пар "ключ-значение" 
+# из где-то предыдущего коммита.
 #
 favorit_languages = {
     'jen': 'python',
@@ -10,5 +7,5 @@ favorit_languages = {
     'edward': 'ruby',
     'phil': 'python',
     }
-language = favorit_languages['sarah'].title() #1
-print(f"Sarah's favorite language is {language}.")
+for name, language in favorit_languages.items():
+    print(f"{name.title()}'s favorite language is {language.title()}.")
