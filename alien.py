@@ -1,6 +1,11 @@
-# Изменение значений в словаре
-alien_0 = {'color': 'green'}
-print(f"The alien is {alien_0['color']}.")
+# Удаление пар "ключ-значение"
 
-alien_0['color'] = 'yellow'
-print(f"The alien is now {alien_0['color']}.")
+# Приводим предыдущий пример к текущему:
+alien_0 = {'color': 'green'}
+alien_0['points'] = 5
+print(alien_0)
+
+# Выполнениу упражнения. Здесь строка 1 
+# приказывает удалить ключ  'points'
+del alien_0['points'] #1
+print(alien_0)
