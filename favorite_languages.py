@@ -1,14 +1,8 @@
-# Для примера выведем для пары сообщение о выбранном 
-# языке. Мы переберем имена в словаре, как это делалось 
-# ранее, но когда имя совпадет с именем одного из друзей, 
-# прога будет выводить спец сообщение об их любимом языке.
-# 
-# В точке 1 строится список друзей, для которых должно 
-# выводится сообщение. В цикле выводится имя очередного 
-# участника  опроса, а затем в точке 2 прога проверяет, 
-# входит ли текущее имя в список friends (2). Если входит, 
-# то выводится спец приветствие с упоминанием выбранного  
-# языка (3). 
+# Метод keys() можно использовать для проверки того, 
+# учствовал ли конкретный человек в опросе.
+# Метод keys() не ограничивает перебором: он возвращает  
+# список всех ключей, и строка 1 просто проверяет, входит 
+# ли ключ 'erin' в список.
 #
 favorit_languages = {
     'jen': 'python',
@@ -16,9 +10,11 @@ favorit_languages = {
     'edward': 'ruby',
     'phil': 'python',
     }
-friends = ['phil', 'sarah'] #1
+if 'erin'not in favorit_languages.keys():
+    print("Erin, please take out poll!" ) #1
+friends = ['phil', 'sarah'] 
 for name in favorit_languages.keys(): 
     print(name.title())
-    if name in friends: #2
-        language = favorit_languages[name].title() #3
+    if name in friends: 
+        language = favorit_languages[name].title() 
         print(f"\t{name.title()}, I see you love {language}")
