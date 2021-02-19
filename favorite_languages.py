@@ -1,5 +1,7 @@
-# Еще один пример перебора всех пар "ключ-значение" 
-# из где-то предыдущего коммита.
+# Если перебор пары ключ значение применяется метод 
+# items(), то для перебора всех ключей в словаре 
+# используется метод keys().
+# 
 #
 favorit_languages = {
     'jen': 'python',
@@ -7,5 +9,5 @@ favorit_languages = {
     'edward': 'ruby',
     'phil': 'python',
     }
-for name, language in favorit_languages.items():
-    print(f"{name.title()}'s favorite language is {language.title()}.")
+for name in favorit_languages.keys():
+    print(name.title())
