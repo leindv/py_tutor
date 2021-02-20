@@ -1,16 +1,15 @@
-# Перебор всех значений в словаре - применение метода
-# values(). Возможны ситуации, когда значения в словаре 
-# дублируются, и необходимо в проге эти дубликаты исключить.
-# В этом случае применяется метод SET() - множество - этот 
-# метод исключает дублирование. В точке 1 set() используется 
-# для извлечения уникальных данных.
-#
-favorit_languages = {
-    'jen': 'python',
-    'sarah': 'c',
-    'edward': 'ruby',
-    'phil': 'python',
-    }
-print("The following languages have been mentoned:")
-for language in set(favorit_languages.values()): #1
-    print(language.title())
+# В точке 1 значение, связанное с каждым именем, представляет 
+# теперь список. При переборе словаря в точке 2 переменная с 
+# именем languages применяется для хранения каждого значения из 
+# словаря. В основном цикле (2) по элементам словаря другой цикл 
+# (3) перебирает элементы списка любимых языков участников.
+favorite_languages = {
+    'jen': ['python', 'ruby'],
+    'sarah': ['c'],
+    'edward': ['ruby', 'go'],
+    'phil': ['python', 'haskell']
+    } #1
+for name, languages in favorite_languages.items(): #2
+    print(f"\n{name.title()}'s favorite langusges are:")
+    for language in languages: #3
+        print(f"\t{language.title()}")
