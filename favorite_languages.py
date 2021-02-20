@@ -1,6 +1,5 @@
-# Перебор ключей в определенном порядке, который 
-# основан на сортировке ключей , возвращаемых циклом FOR.
-# Здесь используется sorted(), вкоторую включен метод keys().
+# Перебор всех значений в словаре - применение метода
+# values().
 #
 favorit_languages = {
     'jen': 'python',
@@ -8,5 +7,6 @@ favorit_languages = {
     'edward': 'ruby',
     'phil': 'python',
     }
-for name in sorted(favorit_languages.keys()):
-    print(f"{name.title()}, thank you for taking the poll.")
+print("The following languages have been mentoned:")
+for language in favorit_languages.values():
+    print(language.title())
