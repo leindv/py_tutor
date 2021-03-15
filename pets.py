@@ -1,13 +1,10 @@
-# ПОЗИЦИОННЫЕ АРГУМЕНТЫ перечисляются в порядке, точно 
-# соответствующем порядку запмси ПАРАМЕТРОВ. Из определения 
-# (1) видно, что функцц должен передаваться тип и имя животного.
-#  В этом примере аргумент 'hamster' сохраняется в параметре 
-# animal_type, а аргумент 'harry' соответсвенно в параметре 
-# pet_name (2).
-# В теле функции эти два параметра используются для вывода информации.
-#
-def describe_pet(animal_type, pet_name): #1
+# Функция describe_pet может вызываться в программе несколько 
+# раз. Для вызова инфо о другом животном достаточно одного 
+# вызова функции describe_pet().
+# 
+def describe_pet(animal_type, pet_name): 
     """Выводит информацию о животном."""
     print(f"\nI have a {animal_type}.")
     print(f"My {animal_type}'s name is {pet_name.title()}.")
-describe_pet('hamster', 'harry') #2
+describe_pet('hamster', 'harry')
+describe_pet('dog', 'willie')
