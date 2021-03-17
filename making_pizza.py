@@ -14,10 +14,11 @@
 # Чтобы вызвать функцию из импортированного модуля надо указать имя модуля 
 # (pizza), точку и имя функции (make_pizza()) (1).
 
-# То есть здесь используется синтаксис IMPORT для ивзлечения всего модуля 
-# ИМЯ_МОДУЛЯ.PY в виде ИМЯ_МОДУЛЯ.ИМЯ_ФУНКЦИИ () .
+# Для имортирования конкретной функции из модуля применяется конструкция:
+# FROM ИМЯ_МОДУЛЯ IMPORT ИМЯ_ФУНКЦИИ_0, ИМЯ ФУНКЦИИ_1, ИМЯ ФУНКЦИИ_2
 
 
-import pizza
-pizza.make_pizza(16, 'pepperoni') #1
-pizza.make_pizza(12, 'mushrooms','green peppers', 'extra cheese')
+
+from pizza import make_pizza
+make_pizza(16, 'pepperoni') 
+make_pizza(12, 'mushrooms','green peppers', 'extra cheese')
