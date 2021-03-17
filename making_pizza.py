@@ -22,8 +22,9 @@
 # можно заменить уникальным псевдонимом (alias) - альтернативным именем 
 # для функции
 
+# Псевдоним можно зазначить для всего модуля, синтаксис будет выглядеть:
+# IMPORT ИМЯ_МОДУЛЯ AS ПСЕВДОНИМ
 
-
-from pizza import make_pizza as mp
-mp(16, 'pepperoni') 
-mp(12, 'mushrooms','green peppers', 'extra cheese')
+import pizza as p
+p.make_pizza(16, 'pepperoni') 
+p.make_pizza(12, 'mushrooms','green peppers', 'extra cheese')
