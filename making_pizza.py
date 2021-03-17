@@ -17,8 +17,13 @@
 # Для имортирования конкретной функции из модуля применяется конструкция:
 # FROM ИМЯ_МОДУЛЯ IMPORT ИМЯ_ФУНКЦИИ_0, ИМЯ ФУНКЦИИ_1, ИМЯ ФУНКЦИИ_2
 
+# Если имя импортированной функции слишком длмнное (неудобное) или ее имя 
+# может конфликтовать с именем существующей функцией, то это имя функции
+# можно заменить уникальным псевдонимом (alias) - альтернативным именем 
+# для функции
 
 
-from pizza import make_pizza
-make_pizza(16, 'pepperoni') 
-make_pizza(12, 'mushrooms','green peppers', 'extra cheese')
+
+from pizza import make_pizza as mp
+mp(16, 'pepperoni') 
+mp(12, 'mushrooms','green peppers', 'extra cheese')
