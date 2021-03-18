@@ -1,11 +1,5 @@
-# ВЫЗОВ МЕТОДОВ.
-# После создания экземпляра на основе класса Dog 
-# можно применить точечную нотацию для вызова любых методов,
-# определенных в Dog (1) и (2).
-# Чтобы вызвать метод указываем экземпляр (в данном случае 
-# my_dog) и вызываемый метод, разделив их точкой.
-# В ходе обработки my_dog.sit() прога ищет метод sit() в 
-# классе Dog и выполняет его. 
+# Создание нескольких экземпляров.
+#  
 
 class Dog(): 
     """Простая модель собаки.""" 
@@ -23,8 +17,12 @@ class Dog():
         """Собака перекатывается по команде."""
         print(f"{self.name.title()} rolled over!")
 my_dog = Dog('willie', 6)
-my_dog.sit() #1
-my_dog.roll_over() #2 
+your_dog = Dog('lucy', 3)
 
-print(f"Me dog`s name is {my_dog.name.title()}.") 
+print(f"My dog`s name is {my_dog.name.title()}.") 
 print(f"My dog`s is {my_dog.age} years old.") 
+my_dog.sit()
+
+print(f"\nYour dog`s name is {your_dog.name.title()}.") 
+print(f"Your dog`s is {your_dog.age} years old.") 
+your_dog.sit()
