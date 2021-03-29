@@ -1,15 +1,14 @@
 # Изменение значений атрибутов.
 # Применяется три способа:
-# 1) ПРЯМОЕ ИЗМЕНЕНИЕ ЗНАЧЕНИЯ АТРИБУТА.
+# 2) ИЗМЕНЕНИЕ ЗНАЧЕНИЯ АТРИБУТА ПРИ ПОМОЩИ МЕТОДА.
 
-# Чтобы изменить значение атрибута проще всего 
-# обратиться к нему ПРЯМО через экземпляр.
-# В точке (1) точечная нотация используется для 
-# обращения к атрибуту odometer_reading экземпляра 
-# и прямо присваивает его значение. Эта строка 
-# приказывает проге взять экземпляр my_new_car, 
-# найти связанный с ним атрибут odometer_reading и 
-# задать значение атрибута равным 23.
+# Класс Car() не изменился, в нем только добавился метод
+# update_odometer(), который получает пробег в миляхи и 
+# сохраняет его в self.odometer_reading. В точке (2) мы 
+# вызываем метод update_odometer() и передаеи ему значение 
+# 23 в аргументе (соответсвующиему параметру mileage в определении
+# метода). Метод устанавливает на одометре значение 23, а метод 
+# read_odometer() выводит текущее значение.
 
 class Car():
     """Простая модель автомобиля."""
@@ -25,12 +24,16 @@ class Car():
         long_name = f"{self.make} {self.model} {self.year}"
         return long_name.title()
 
-    def read_odometer(self): #2
+    def read_odometer(self): 
         """Выводит пробег машины в милях."""
         print(f"This car has {self.odometer_reading} miles on it.")
+
+    def update_odometer(self, mileage): #1
+        """Устанавливает заданное значение на одометре."""
+        self.odometer_reading = mileage
 
 my_new_car = Car('audi','a6', 2020)
 print(my_new_car.get_descriptivq_name())
 
-my_new_car.odometer_reading = 23 #1
+my_new_car.update_odometer(23) #2 
 my_new_car.read_odometer()
