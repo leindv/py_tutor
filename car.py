@@ -1,16 +1,16 @@
 # Изменение значений атрибутов.
 # Применяется три способа:
-# 2) ИЗМЕНЕНИЕ ЗНАЧЕНИЯ АТРИБУТА ПРИ ПОМОЩИ МЕТОДА.
+# 2) ИЗМЕНЕНИЕ ЗНАЧЕНИЯ АТРИБУТА ПРИРАЩЕНИЕМ.
 
-# Метод update_odometer() можно расширить так, что при 
-# каждом изменении показаний одометравыполнялась некоторая 
-# дополнительная работа. Добавим проверку, которая гарантирует , 
-# что никто не будет сбрасывать показания одометра.
-# Теперь update_odometer() проверяет новое значение перед измерением 
-# атрибута. Если новое значение mileage больше или равно текущему 
-# значениию, self.odometer_reading, показания одометра можно обновить 
-# новым значением (1). Если же новое значение меньше текущего, получаем 
-# предупреждение (2).
+# Новый метод increment_odometer() в (1) получает расстояние 
+# в милях и прибавляет его к self.odometer_reading. В (2) создается
+# экземпляр my_user_car. Мы инициализируем показания его одометра
+# значением 23500 (3). В (4) метод increment_odometer(), которому 
+# предоставляется значение 100, чтобы увеличить показания одометра
+# на 100 миль, пройденные с момента покупки. 
+
+# Данный пример предполагает, что приобретена подержанная машина, 
+# на которй с момента покупки мы проехали 100 миль.
 
 
 class Car():
@@ -36,13 +36,21 @@ class Car():
         Устанавливает заданное значение на одометре.
         При попытке обратной прокрутки изменения отклоняются.
         """
-        if mileage >= self.odometer_reading: #1
+        if mileage >= self.odometer_reading: 
             self.odometer_reading = mileage
         else:
-            print("You can not roll back an odometer!") #2
+            print("You can not roll back an odometer!")
 
-my_new_car = Car('audi','a6', 2020)
-print(my_new_car.get_descriptivq_name())
+    def increment_odometer(self, miles): #1
+        """Увеличение показания одометра с заданным приращением.""" 
+        self.odometer_reading += miles
 
-my_new_car.update_odometer(23) 
-my_new_car.read_odometer()
+my_user_car = Car('subaru', 'outback', 2015) #2
+print(my_user_car.get_descriptivq_name())
+
+my_user_car.update_odometer(23_500) #3
+my_user_car.read_odometer()
+
+my_user_car.increment_odometer(100) #4
+my_user_car.read_odometer()
+
