@@ -1,4 +1,4 @@
-
+# Аналогичен файлк my_car.py
 
 from car import ElectricalCar
 
