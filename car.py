@@ -1,16 +1,14 @@
-# ИМПОРТИРОВАНИЕ КЛАССОВ.
+# ИМПОРТ КЛАССОВ.
 
-# Импортирование одного класса.
+# Хранение нескольких классов в иодкле.
 
-# В (1) включается строка документации уровня модуля с 
-# кратким описанием содержания модуля.
-# Далее будем создавать файл с иенем my_car.py, который 
-# импортирует класс Car() и создает экземпляр этого 
-# класса.
+# В отличие от модуля car из предыдущего для данного файла модуля 
+# в этот модуль добавлены клвссы Battery() и ElectricalCar().
 
 
-"""Класс для представления автомобиля.""" #1
-class Car():
+"""Классы для представления машин с бензиновым и электродвигателем."""
+
+class Car(): 
     """Простая модель автомобиля."""
     def __init__(self, make, model, year):
         """Инициализирует АТРИБУТЫ описания автомобиля."""
@@ -19,6 +17,10 @@ class Car():
         self.year = year
         self.odometer_reading = 0
 
+        # Емкость бензобака и уровень бензина в нем.
+        self.fuel_capacity = 15
+        self.fuel_level = 0
+        
     def get_descriptive_name(self):
         """Возвращает аккуратно отформатированное описание."""
         long_name = f"{self.make} {self.model} {self.year}"
@@ -38,8 +40,46 @@ class Car():
         else:
             print("You can not roll back an odometer!")
 
-    def increment_odometer(self, miles): #1
+    def increment_odometer(self, miles): 
         """Увеличение показания одометра с заданным приращением.""" 
         self.odometer_reading += miles
 
+    def fill_gas_tank(self): 
+        """Заполнение бензобака бензином до полного."""
+        self.fuel_level = self.fuel_capacity
+        print("Fuel tank is full.")
 
+class Battery(): 
+    """Простая модель аккумулятора электромобиля."""
+
+    def __init__(self, battery_size = 70): 
+        """Инициализирует атрибуты аккумулятора."""
+        self.battery_size = battery_size
+
+    def describe_battery(self): 
+        """Выводит информацию о мощности акуумулятора."""
+        print(f"This car has a {self.battery_size} - kWh battery.")
+
+    def get_range(self): #1
+        """Выводит приблизительный запас хода для аккумулятора."""
+        if self.battery_size == 75:
+            range = 260
+        elif self.battery_size == 100:
+            range = 315
+
+        print(f"This car can go about {range} miles on full charge.")
+    
+class ElectricalCar(Car): 
+    """
+    Представляет аспекты машины, специфичные 
+    для электромобилей.
+    """
+    def __init__(self, make, model, year): 
+        """ 
+        Инициализирует атрибуты класса-родителя.
+        Затем инициализируем атрибуты, специфичные для электромобиля.
+        """
+        super().__init__(make, model, year)
+        self.battery = Battery() #4
+
+    
