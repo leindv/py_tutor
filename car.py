@@ -52,7 +52,7 @@ class Car():
 class Battery(): 
     """Простая модель аккумулятора электромобиля."""
 
-    def __init__(self, battery_size = 70): 
+    def __init__(self, battery_size = 75): 
         """Инициализирует атрибуты аккумулятора."""
         self.battery_size = battery_size
 
@@ -60,7 +60,7 @@ class Battery():
         """Выводит информацию о мощности акуумулятора."""
         print(f"This car has a {self.battery_size} - kWh battery.")
 
-    def get_range(self): #1
+    def get_range(self): 
         """Выводит приблизительный запас хода для аккумулятора."""
         if self.battery_size == 75:
             range = 260
@@ -80,6 +80,6 @@ class ElectricalCar(Car):
         Затем инициализируем атрибуты, специфичные для электромобиля.
         """
         super().__init__(make, model, year)
-        self.battery = Battery() #4
+        self.battery = Battery() 
 
     
