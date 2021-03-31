@@ -10,9 +10,11 @@
 # Для просмотра содержимого все строки файла 
 # перебираются в цикле for по объекту файла (3).
 
+# После добавления вызова rstrip() (4) в команде 
+# print лишние строки удаляются.
 
 
 filename = 'pi_digits.txt' #1
 with open(filename) as file_object: #2
-    for line in file_object:
-        print(line)
+    for line in file_object: #3
+        print(line.rstrip()) #4
