@@ -8,7 +8,10 @@
 # Метод read() читает все содержимое файла и сохраняет 
 # его в строке в переменной contents.
 
+# Метод rstrip() (1) удаляет все пропучки в конце строки, 
+# поэтому вывод инфо будет соответсвовать содежимому 
+# анализируемого файла.
 
 with open('pi_digits.txt') as file_object:
     contents = file_object.read()
-print(contents)
+    print(contents.rstrip()) #1
