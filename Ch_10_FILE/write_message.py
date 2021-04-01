@@ -1,14 +1,13 @@
-# Запись в файл.
+# Присоединение данных к файлу.
 
-# Многострочная зпись.
-# Если символы ("\n") не были включены в команды 
-# write(), то полученные строки в txt-файле получились 
-# бы "склееными."
-
-
+# В точке (1) аргумент 'a' используется для открытия файла 
+# в режиме ПРИСОЕДИНЕНИЯ.
+# (вместо перезаписи существующего файла). В (2) записываются 
+# две новые стоки, добавляющиеся к содержимому txt-файл.
 
 filename = 'programming.txt'
 
-with open(filename, 'w') as file_object: 
-    file_object.write('I love programming.\n')
-    file_object.write('I love creating new games.\n')
+with open(filename, 'a') as file_object: #1
+    file_object.write('I also love finding meaning in large datasets.\n') #2
+    file_object.write('I love creating apps thet can run in a browser.\n')
+
