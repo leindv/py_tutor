@@ -1,16 +1,30 @@
 # Сохранение и чтение данных, сгенерированных пользователем.
 
-# В (1) прога запрашивает данные пользователя для сохранения.
-# Затем вызывается функция json.dump(), которой передается имя 
-# пользователя и объект файла;  функция сохраняет имя пользователя 
-# в файле (2).
-# Далее выводиться сообщение о том, что имя пользователя сохранено (3).
+# Теперь объединим эти две проги из предыдущих коммитов в одну.
+#
+
+# В (1) прога пытается открыть файл username.json. Если файл 
+# существует, прога читает имя пользователя в память (2) и 
+# выводит приветсвенное сообщение в блоке else.
+# Если прога запускается впервые, то файл username.json не 
+# существует и проиходит исключение FileNotFoundError (3). 
+# Прога переходит к блоку except, в котором пользователю 
+# предлагают ввести имя (4).
+# Затем прога вызывает json.dump() для сохранения и 
+# вывода приветсвия (5).
 
 import json
 
-username = input("Wtat is your name? ") #1
-
+# Программа загружает имя пользователя, если оно было сохранено ранее.
+# В противном случаеоно запрашивает имя пользователя и сохраняет его.
 filename = 'username.json'
-with open(filename, 'w') as f:
-    json.dump(username, f) #2
-    print(f"We shell remember you when you come back, {username}!") #3
+try:
+    with open(filename) as f: #1
+        username = json.load(f) #2
+except FileNotFoundError: #3
+    username = input('What is your name? ') #4
+    with open(filename, 'w') as f: #5
+        json.dump(username, f)
+        print(f"We shell remember you when you com back, {username}!")
+else:
+    print(f"Welcom back, {username}!")
