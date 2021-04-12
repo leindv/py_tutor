@@ -1,48 +1,25 @@
-# Для написания тестового сценария импортируем модуль unittest
-# и функцию, которую надо протестировать (0).
-# Затем создаем класс, наследующий от unittest.TestCase, и 
-# напишим серию методов для тестирования различных аспектов 
-# поведения своей функции.
+# Добавление новых тестов.
 
-# В (1) создаем класс NameTestCase, который содержит серию модульных 
-# тестов для get_formatted_name(). Этот класс должен наследоваться от 
-# unittest.TestCase, чтобы прога знала, как запустить написанные нами 
-# тесты.
-# Класс NameTestCase содержит один метод, который тестирует всего один 
-# аспект get_formatted_name() - првильность форматирования имен, состоящих 
-# только из имени и фамилии, и назван test_first_last_name().
-# В тестовом методе вызывается тестируемая функция и сохраняется возвращаемое
-# значение, которое необходимо проверить. В данном примере вызывается функция
-# get_formatted_name() с аргументами 'dim' и 'lein', а результат сохраняется 
-# в переменной (2).
-# В (3) применяется одна из самых полезных особеноостей unittest: метод assert.
-# Методы assert проверяют , что полученный результат соответсвует тому результату,
-# который мы рассчитываем получить. В данном случае известно, что функция
-# get_formatted_name() должна вернуть полное имя с пробелами и капитализацией слов,
-# поэтому переменная formatted_name должна содержать текст "Dim Lein".
-# Чтобы убедиться в этом мы используем метод assertEqual() из модуля unittest
-# и передаем ему переменную, formatted_name и строку 'Dim Lein'.
-# Вызов self.assertEqual(formatted_name, 'Dim Lein') означает: "Сравни значение
-# formatted_name со строкой 'Dim Lein'. Если они равны, как ожидалось - хорошо, 
-# но если не равны, обязательно сообщи мне."
-# В (4) блок if проверяет специальную переменную __name__, значение которй 
-# задается при выполнении программы. Если файл выполняется как главная программа,
-# то переменная __name__ будет присвоено значение '__main__'. В этом случае
-# вызывается метод unittest.main(), который выполняет тестовый сценарий.
-# Если файл импортируется тестовым сценарием, то переменная __name__ будет 
-# содержать значение '__main__', и этот блок выполняться не будет.
-
+# Чтобы протестировать функцию мы вызываем get_formatted_name()
+# с тремя компонентами (1), после чего используем assertEqual()
+# для проверки того, что возвращаемое полное имя совпадает с 
+# ожидаемым.
 
 import unittest
-from name_function import get_formatted_name #0
+from name_function import get_formatted_name 
 
-class NameTestCase(unittest.TestCase): #1
+class NameTestCase(unittest.TestCase): 
     """Тесты для name_function.py."""
 
     def test_first_last_name(self):
         """Имена вида 'Dim Lein' работают правильно."""
-        formatted_name = get_formatted_name('dim', 'lein') #2
-        self.assertEqual(formatted_name, 'Dim Lein') #3
+        formatted_name = get_formatted_name('dim', 'lein') 
+        self.assertEqual(formatted_name, 'Dim Lein') 
 
-if __name__ == '__main__': #4
+    def test_first_last_middle_name(self): #2
+        """Работаю ли такие имена как 'Wolfgang Amadeus Mozart'?"""
+        formatted_name = get_formatted_name('wolfgang', 'mozart', 'amadeus')
+        self.assertEqual(formatted_name, 'Wolfgang Amadeus Mozart')
+
+if __name__ == '__main__': 
     unittest.main()
