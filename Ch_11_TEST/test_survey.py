@@ -1,33 +1,32 @@
-# Тест проверяет, что один ответ на опрос сщхраняется правильно.
+# Тест проверяет, что ТРИ ответа сохранились правильно.
 
-# После того как метод будет сохранен, метод assertIn() проверят, 
-# что он действительно находиться в списке ответов.
-
-# Прга начинается с импорта модуля unittest и тестируемого класса 
-# AnonymousSurvey. Тестовый сценарий TestAnonymousSurvey наследует
-# unittest.TestCase(1). Первый тестовый метод проверяет, что сохраненный 
-# ответ действительно попадает в список ответов опроса. Этому методу 
-# присваивается имя test_store_single()(2).
-# Чтобы протестировать поведение класса, надо создать экземпляр класса.
-# В (3) создается экземпляр с именем my_survey для вопроса 
-#  "What language did you first learn to speak?". 
-#  Один ответ (English) сохраняется с использованием метода 
-#  store_response(). Затем прога убеждается в том, что ответ был
-#  сохранен правильно; для этого она проверяет, что значение English 
-#  присутсвует в списке my_survey.response (4). 
-
+# Здесь определяем объект опроса по аналогии с тем, как делалось 
+# это в предыдущем коммите. Затем определяем список, содержащий три 
+# разных ответа (1) и для каждого из этих ответов вызывается метод 
+# store_response(). После того как ответы будут сохранены, следующий 
+# цикл проверяет, что каждый ответ присутсвует в my_survey.responses(2).
 
 import unittest
 from survey import AnonymousSurvey
-class TestAnonymousSurvey(unittest.TestCase): #1
+class TestAnonymousSurvey(unittest.TestCase): 
     """Тесты для класса AnonymousSurvey."""
 
-    def test_store_single_response(self): #2
+    def test_store_single_response(self): 
         """Проверяет , что один ответ сохранен правильно."""
         question = "What language did you first learn to speak?"
-        my_survey = AnonymousSurvey(question) #3
+        my_survey = AnonymousSurvey(question) 
         my_survey.store_response('English')
-        self.assertIn('English', my_survey.responses) #4
+        self.assertIn('English', my_survey.responses)
+
+    def test_store_three_responses(self):
+        """Проверяет, что три ответа сохраняются праильно."""
+        my_survey = AnonymousSurvey(question)
+        responses = ['English', 'Spanish', 'Mandarin'] #1
+        for response in responses:
+            my_survey.store_response(response)
+
+        for response in responses: #2
+            self.assertIn(response, my_survey.responses)
 
 if __name__ == '__mine__':
     unittest.main()
